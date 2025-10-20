@@ -1,7 +1,7 @@
 ---
-name: "[idea] issue's name"
+name: "[idea]"
 about: 회의가 필요한 내용을 정의합니다.
-title: ''
+title: "[idea] issue's name"
 labels: idea
 assignees: funnyhun, OnePaperHoon
 

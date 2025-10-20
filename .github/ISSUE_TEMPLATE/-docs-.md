@@ -1,7 +1,7 @@
 ---
-name: "[docs] issue's name"
+name: "[docs]"
 about: 문서를 정의합니다.
-title: ''
+title: "[docs] issue's name"
 labels: documentation
 assignees: funnyhun, OnePaperHoon
 

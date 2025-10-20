@@ -1,7 +1,7 @@
 ---
-name: "[bug] issue's name"
+name: "[bug]"
 about: 버그를 정의합니다.
-title: ''
+title: "[bug] issue's name"
 labels: bug
 assignees: funnyhun, OnePaperHoon
 

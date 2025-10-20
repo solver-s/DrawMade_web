@@ -1,7 +1,7 @@
 ---
-name: "[dev] issue's name"
+name: "[dev]"
 about: 개발이 필요한 내용을 정의합니다.
-title: ''
+title: "[dev] issue's name"
 labels: enhancement
 assignees: funnyhun, OnePaperHoon
 
