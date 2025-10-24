@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { memo, useState } from "react";
 
-import { Button } from "../ui/Button";
+import { Button } from "../ui/button/Button";
 import { KeywordInput } from "../ui/keyword/KeywordInput";
 import { SelectInput } from "../ui/Input/SelectInput";
 

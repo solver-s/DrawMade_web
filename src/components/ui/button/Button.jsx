@@ -1,5 +1,6 @@
 import { memo } from "react";
 import styled from "styled-components";
+import { useButton } from "./useButton";
 
 const StyledButton = styled.button`
   background-color: ${({ theme, $isDisabled }) => ($isDisabled ? theme.bgColor : theme.color)};
@@ -11,10 +12,12 @@ const StyledButton = styled.button`
   border: 0px;
 `;
 
-export const Button = memo(({ isDisabled = false, content, onClick, isLoading = false }) => {
+export const Button = memo(({ props }) => {
+  const { handleClick: onClick, $isDisabled, buttonContent: content } = useButton(props);
+
   return (
-    <StyledButton onClick={!isDisabled && !isLoading ? onClick : null} $isDisabled={isDisabled || isLoading}>
-      {isLoading ? "주제 생성 중..." : content}
+    <StyledButton onClick={onClick} $isDisabled={$isDisabled}>
+      {content}
     </StyledButton>
   );
 });
