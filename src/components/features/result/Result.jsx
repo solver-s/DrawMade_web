@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { memo, useState } from "react";
 
-import { Box } from "./ui/Box";
-import LibIcon from "../assets/library.svg?react";
-import mockData from "../assets/mock/data.json";
+import { Box } from "./Box";
+import LibIcon from "../../../assets/library.svg?react";
 
 const Wrapper = styled.div`
   width: 100%;

@@ -5,8 +5,7 @@ import { LightTheme, DarkTheme } from "../styles/theme";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
 import { Header } from "./Header";
-import { Form } from "./form/Form";
-import { Result } from "./Result";
+import { Result } from "./features/result/Result";
 import { generateTopic } from "../api/api";
 import { useFetchData } from "../hooks/useFetchData";
 import { LoadLocalStorage } from "../utils/LoadLocalStorage";
@@ -51,7 +50,7 @@ export const App = () => {
         <GlobalStyle />
         <Wrapper>
           <Header />
-          <Form handlePayload={handlePayload} isLoading={isLoading} />
+          {/* <Form handlePayload={handlePayload} isLoading={isLoading} /> */}
           <Result topic={topicResult} />
         </Wrapper>
       </ThemeProvider>
