@@ -1,4 +1,4 @@
-export const LoadLocalStorage = (key) => {
+export const loadLocalStorage = (key) => {
   try {
     const res = window.localStorage.getItem(key);
     return res ? JSON.parse(res) : null;
