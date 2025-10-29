@@ -57,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color};
   }
 
-  input, option, ul, ol{
+  input, option, ul, ol, a{
     font-family: inherit;
     font-size: 0.9rem;
     color: ${({ theme }) => theme.color};
@@ -67,5 +67,9 @@ export const GlobalStyle = createGlobalStyle`
 	list-style-position: inside;
 	font-size: 0.8rem;
 	color: ${({ theme }) => theme.subColor};
+  }
+
+  a {
+	text-decoration: none;
   }
 `;
