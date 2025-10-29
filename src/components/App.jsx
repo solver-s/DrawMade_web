@@ -8,7 +8,8 @@ import { Header } from "./Header";
 import { Result } from "./features/result/Result";
 import { generateTopic } from "../api/api";
 import { useFetchData } from "../hooks/useFetchData";
-import { LoadLocalStorage } from "../utils/LoadLocalStorage";
+import { loadLocalStorage } from "../utils/loadLocalStorage";
+import { Sidebar } from "./features/sidebar/Sidebar";
 
 const Wrapper = styled.div`
   max-width: 50rem;
@@ -28,8 +29,8 @@ export const App = () => {
 
   const handlePayload = (univ, depart, keywords) => {
     const newPayload = {
-      school_id: LoadLocalStorage("supportedUniv").filter((e) => e.name === univ)[0].id,
-      department_id: LoadLocalStorage("supportedDepart").filter((e) => e.name === depart)[0].id,
+      school_id: loadLocalStorage("supportedUniv").filter((e) => e.name === univ)[0].id,
+      department_id: loadLocalStorage("supportedDepart").filter((e) => e.name === depart)[0].id,
       keywords,
     };
 
@@ -48,6 +49,7 @@ export const App = () => {
     <>
       <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
         <GlobalStyle />
+        <Sidebar />
         <Wrapper>
           <Header />
           {/* <Form handlePayload={handlePayload} isLoading={isLoading} /> */}
