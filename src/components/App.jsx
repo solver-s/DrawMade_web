@@ -4,18 +4,19 @@ import styled, { ThemeProvider } from "styled-components";
 import { LightTheme, DarkTheme } from "../styles/theme";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
-import { Header } from "./Header";
+import { Header } from "./ui/Header";
 import { Result } from "./features/result/Result";
 import { generateTopic } from "../api/api";
 import { useFetchData } from "../hooks/useFetchData";
 import { loadLocalStorage } from "../utils/loadLocalStorage";
 import { Sidebar } from "./features/sidebar/Sidebar";
+import { Home } from "./features/home/Home";
 
 const Wrapper = styled.div`
   max-width: 50rem;
   min-width: 32rem;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding-top: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -51,9 +52,10 @@ export const App = () => {
         <GlobalStyle />
         <Sidebar />
         <Wrapper>
-          <Header />
+          <Home />
+          {/* <Header /> */}
           {/* <Form handlePayload={handlePayload} isLoading={isLoading} /> */}
-          <Result topic={topicResult} />
+          {/* <Result topic={topicResult} /> */}
         </Wrapper>
       </ThemeProvider>
     </>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MainIcon from "../assets/main.svg?react";
+import MainIcon from "../../assets/main.svg?react";
 import { memo } from "react";
 
 const Wrapper = styled.div`
