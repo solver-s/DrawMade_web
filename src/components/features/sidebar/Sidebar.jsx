@@ -105,7 +105,7 @@ const Item = styled.li`
 
 export const Sidebar = () => {
   const [isFolded, setIsFolded] = useState(false);
-  const home = routes[0];
+  const list = routes[0].children;
 
   const handleFold = () => {
     setIsFolded((prev) => !prev);
@@ -122,12 +122,7 @@ export const Sidebar = () => {
         </Util>
       </Utils>
       <List $isFolded={isFolded}>
-        <Item key={home.name}>
-          {home.icon}
-          <span>{home.name}</span>
-          <Link to={home.path}>{home.name}</Link>
-        </Item>
-        {home.children.map((child) => (
+        {list.map((child) => (
           <Item key={child.name}>
             {child.icon}
             <span>{child.name}</span>

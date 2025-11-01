@@ -11,6 +11,7 @@ import { useFetchData } from "../hooks/useFetchData";
 import { loadLocalStorage } from "../utils/loadLocalStorage";
 import { Sidebar } from "./features/sidebar/Sidebar";
 import { Home } from "./features/home/Home";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Wrapper = styled.div`
   max-width: 50rem;
@@ -27,6 +28,7 @@ const Wrapper = styled.div`
 export const App = () => {
   const [theme, setTheme] = useState("light");
   const [payload, setPayload] = useState(null);
+  const isShowSidebar = useLocation().pathname !== "/start";
 
   const handlePayload = (univ, depart, keywords) => {
     const newPayload = {
@@ -50,10 +52,9 @@ export const App = () => {
     <>
       <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
         <GlobalStyle />
-        <Sidebar />
+        {isShowSidebar && <Sidebar />}
         <Wrapper>
-          <Home />
-          {/* <Header /> */}
+          <Outlet />
           {/* <Form handlePayload={handlePayload} isLoading={isLoading} /> */}
           {/* <Result topic={topicResult} /> */}
         </Wrapper>
