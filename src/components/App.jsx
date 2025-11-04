@@ -26,6 +26,7 @@ const Wrapper = styled.div`
 `;
 
 export const App = () => {
+  const [user, setUser] = useState(null);
   const [theme, setTheme] = useState("light");
   const [payload, setPayload] = useState(null);
   const isShowSidebar = useLocation().pathname !== "/start";
