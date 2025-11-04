@@ -1,4 +1,4 @@
-import { routes } from "../../../utils/routes";
+import { services } from "../../../utils/routes";
 import Arrow from "../../../assets/arrow.svg?react";
 import Light from "../../../assets/light.svg?react";
 import Dark from "../../../assets/dark.svg?react";
@@ -105,7 +105,6 @@ const Item = styled.li`
 
 export const Sidebar = () => {
   const [isFolded, setIsFolded] = useState(false);
-  const list = routes[0].children;
 
   const handleFold = () => {
     setIsFolded((prev) => !prev);
@@ -122,11 +121,11 @@ export const Sidebar = () => {
         </Util>
       </Utils>
       <List $isFolded={isFolded}>
-        {list.map((child) => (
-          <Item key={child.name}>
-            {child.icon}
-            <span>{child.name}</span>
-            <Link to={child.path}>{child.name}</Link>
+        {services.map((service) => (
+          <Item key={service.name}>
+            {service.icon}
+            <span>{service.name}</span>
+            <Link to={service.path}>{service.name}</Link>
           </Item>
         ))}
       </List>
