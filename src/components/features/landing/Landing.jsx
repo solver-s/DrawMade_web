@@ -4,6 +4,7 @@ import AppIcon from "../../../assets/main.svg?react";
 import KaKaoIcon from "../../../assets/kakao.svg?react";
 
 import { Header } from "../../ui/Header";
+import { useAuth } from "../../../hooks/useAuth";
 
 const Wrapper = styled.div`
   margin-top: 3rem;
@@ -12,6 +13,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 0.1rem solid ${({ theme }) => theme.borderColor};
 
   & > h1 {
     font-size: 4.5rem;
@@ -29,6 +32,12 @@ const Wrapper = styled.div`
   & > div p {
     color: ${({ theme }) => theme.subColor};
     font-size: 1rem;
+    font-weight: 300;
+  }
+
+  & > span {
+    color: ${({ theme }) => theme.subColor};
+    font-size: 0.9rem;
     font-weight: 300;
   }
 `;
@@ -92,6 +101,8 @@ const KaKao = styled.button`
 `;
 
 export const Landing = () => {
+  const { handleLogin } = useAuth();
+
   return (
     <Wrapper>
       {/* <Header /> */}
@@ -118,10 +129,11 @@ export const Landing = () => {
           <span>생성한 주제를 저장하고 언제든 다시 확인할 수 있습니다</span>
         </div>
       </Boxes>
-      <KaKao>
+      <KaKao onClick={handleLogin}>
         <KaKaoIcon />
         카카오 로그인
       </KaKao>
+      <span>카카오 계정으로 간편하게 시작할 수 있습니다.</span>
     </Wrapper>
   );
 };
