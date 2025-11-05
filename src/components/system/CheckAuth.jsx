@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 export const CheckAuth = () => {
-  const [user, setUser] = useState({});
+  const { isLogin } = useAuth();
 
-  if (!user) return <Navigate to="/start" replace />;
-
+  if (!isLogin) return <Navigate to="/start" replace />;
   return <Outlet />;
 };
