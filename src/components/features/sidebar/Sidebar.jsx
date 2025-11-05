@@ -30,7 +30,7 @@ const Utils = styled.div`
   }
 
   & > :last-child {
-    rotate: ${({ $isFolded }) => ($isFolded ? "180deg" : "0deg")};
+    rotate: ${({ $isFolded }) => ($isFolded ? "0deg" : "-180deg")};
     transition: rotate 0.2s ease-in-out;
   }
 `;
