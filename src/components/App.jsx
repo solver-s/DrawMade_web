@@ -30,14 +30,16 @@ export const App = () => {
   const [theme, setTheme] = useState("light");
   const isShowSidebar = useLocation().pathname !== "/start";
 
-  console.log(useAuth().isLogin);
+  const handleTheme = useCallback(() => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  }, [theme]);
 
   return (
     <>
       <AuthProvider>
         <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
           <GlobalStyle />
-          {isShowSidebar && <Sidebar />}
+          {isShowSidebar && <Sidebar onClick={handleTheme} />}
           <Wrapper>
             <Outlet />
           </Wrapper>

@@ -1,6 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import { services } from "../../router/routes.jsx";
 
@@ -57,11 +57,12 @@ const List = styled.ul`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.4rem;
   padding: 1rem 0.5rem;
 
   & span {
     display: ${({ $isFolded }) => $isFolded && "none"};
+    transition: opacity 0.3s ease-in-out;
     overflow: hidden;
     white-space: nowrap;
   }
@@ -78,10 +79,8 @@ const Item = styled.li`
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 8rem 0.5rem 0.8rem;
-
-  & > span {
-    color: ${({ theme }) => theme.color};
-  }
+  background-color: ${({ $isLocated, theme }) => ($isLocated ? theme.inverseColor : "transparent")};
+  border-radius: 0.3rem;
 
   & > a {
     position: absolute;
@@ -91,21 +90,26 @@ const Item = styled.li`
     color: transparent;
   }
 
+  & > span {
+    color: ${({ $isLocated, theme }) => ($isLocated ? theme.themeColor : theme.color)};
+    font-size: 0.9rem;
+  }
+
   & > svg {
     flex-shrink: 0;
-    fill: ${({ theme }) => theme.color};
+    fill: ${({ $isLocated, theme }) => ($isLocated ? theme.themeColor : theme.color)};
     width: 1.2rem;
     height: 1.2rem;
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.borderColor};
-    border-radius: 0.3rem;
+    background-color: ${({ $isLocated, theme }) => ($isLocated ? theme.inverseColor : theme.borderColor)};
   }
 `;
 
-export const Sidebar = () => {
+export const Sidebar = ({ onClick }) => {
   const [isFolded, setIsFolded] = useState(false);
+  const located = useLocation().pathname;
 
   const handleFold = () => {
     setIsFolded((prev) => !prev);
@@ -114,7 +118,7 @@ export const Sidebar = () => {
   return (
     <Wrapper $isFolded={isFolded}>
       <Utils $isFolded={isFolded}>
-        <Util>
+        <Util onClick={onClick}>
           <Light />
         </Util>
         <Util onClick={handleFold}>
@@ -123,7 +127,7 @@ export const Sidebar = () => {
       </Utils>
       <List $isFolded={isFolded}>
         {services.map((service) => (
-          <Item key={service.name}>
+          <Item key={service.name} $isLocated={located === service.path}>
             {service.icon}
             <span>{service.name}</span>
             <Link to={service.path}>{service.name}</Link>
