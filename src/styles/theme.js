@@ -1,5 +1,6 @@
 const LightTheme = {
   themeColor: "#fff",
+  inverseColor: "#000",
   color: "#333333",
   subColor: "#666666",
   bgColor: "#CCCCCC",
@@ -13,7 +14,8 @@ const LightTheme = {
 };
 
 const DarkTheme = {
-  themeColor: "#222",
+  themeColor: "#000",
+  inverseColor: "#fff",
   color: "#F5F5F5",
   placeholder: {
     color: "#f2f2f2",
