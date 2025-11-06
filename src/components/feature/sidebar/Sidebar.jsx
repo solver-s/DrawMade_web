@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import { useAuth } from "../../../hooks/useAuth.jsx";
+import { useTheme } from "../../../hooks/useTheme.jsx";
 import { services } from "../../router/routes.jsx";
 
 import Arrow from "../../../assets/arrow.svg?react";
@@ -16,6 +18,7 @@ const Wrapper = styled.nav`
   display: flex;
   flex-direction: column;
   border-right: 0.1rem solid ${({ theme }) => theme.borderColor};
+
   width: ${({ $isFolded }) => ($isFolded ? "4rem" : "15rem")};
   transition: width 0.3s ease-in-out;
 `;
@@ -53,26 +56,6 @@ const Util = styled.button`
   }
 `;
 
-const List = styled.ul`
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding: 1rem 0.5rem;
-
-  & span {
-    display: ${({ $isFolded }) => $isFolded && "none"};
-    transition: opacity 0.3s ease-in-out;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  & li {
-    padding: ${({ $isFolded }) => $isFolded && "0.5rem 0rem"};
-    justify-content: ${({ $isFolded }) => $isFolded && "center"};
-  }
-`;
-
 const Item = styled.li`
   position: relative;
   display: flex;
@@ -107,7 +90,66 @@ const Item = styled.li`
   }
 `;
 
-export const Sidebar = ({ onClick }) => {
+const List = styled.ul`
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 0.5rem;
+
+  & li {
+    padding: ${({ $isFolded }) => $isFolded && "0.5rem 0rem"};
+    justify-content: ${({ $isFolded }) => $isFolded && "center"};
+  }
+
+  & span {
+    display: ${({ $isFolded }) => $isFolded && "none"};
+    overflow: hidden;
+    white-space: nowrap;
+  }
+`;
+
+const Image = styled.div`
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1.5rem;
+  background-color: #4d4d4d;
+`;
+
+const User = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  justify-content: ${({ $isFolded }) => $isFolded && "center"};
+
+  & > span {
+    display: ${({ $isFolded }) => $isFolded && "none"};
+    color: ${({ theme }) => theme.color};
+    font-size: 0.9rem;
+    font-weight: 300;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.borderColor};
+    cursor: pointer;
+  }
+`;
+
+const Profile = styled.div`
+  margin-top: auto;
+  border-top: 0.1rem solid ${({ theme }) => theme.borderColor};
+  padding: 0.5rem;
+`;
+
+export const Sidebar = () => {
+  const { handleTheme } = useTheme();
+  const { user, handleLogin } = useAuth();
   const [isFolded, setIsFolded] = useState(false);
   const located = useLocation().pathname;
 
@@ -118,7 +160,7 @@ export const Sidebar = ({ onClick }) => {
   return (
     <Wrapper $isFolded={isFolded}>
       <Utils $isFolded={isFolded}>
-        <Util onClick={onClick}>
+        <Util onClick={handleTheme}>
           <Light />
         </Util>
         <Util onClick={handleFold}>
@@ -134,6 +176,12 @@ export const Sidebar = ({ onClick }) => {
           </Item>
         ))}
       </List>
+      <Profile onClick={handleLogin}>
+        <User $isFolded={isFolded}>
+          <Image />
+          <span>{user.name}</span>
+        </User>
+      </Profile>
     </Wrapper>
   );
 };
