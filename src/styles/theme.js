@@ -17,6 +17,7 @@ const DarkTheme = {
   themeColor: "#000",
   inverseColor: "#fff",
   color: "#F5F5F5",
+  borderColor: "#373737",
   placeholder: {
     color: "#f2f2f2",
   },
