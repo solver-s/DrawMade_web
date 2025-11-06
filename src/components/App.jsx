@@ -1,7 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 
-import styled, { ThemeProvider } from "styled-components";
-import { LightTheme, DarkTheme } from "../styles/theme";
+import styled, { ThemeProvider, useTheme } from "styled-components";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
 import { Header } from "./ui/Header";
@@ -12,7 +11,8 @@ import { loadLocalStorage } from "../utils/loadLocalStorage";
 import { Sidebar } from "./feature/sidebar/Sidebar";
 import { Home } from "./page/Home";
 import { Outlet, useLocation } from "react-router-dom";
-import { AuthProvider, useAuth } from "../hooks/useAuth";
+import { AuthProvider } from "../hooks/useAuth";
+import { ThemeProvider as MyThemeProvder } from "../hooks/useTheme";
 
 const Wrapper = styled.div`
   max-width: 50rem;
@@ -27,24 +27,19 @@ const Wrapper = styled.div`
 `;
 
 export const App = () => {
-  const [theme, setTheme] = useState("light");
   const isShowSidebar = useLocation().pathname !== "/start";
-
-  const handleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  }, [theme]);
 
   return (
     <>
-      <AuthProvider>
-        <ThemeProvider theme={theme === "light" ? LightTheme : DarkTheme}>
+      <MyThemeProvder>
+        <AuthProvider>
           <GlobalStyle />
-          {isShowSidebar && <Sidebar onClick={handleTheme} />}
+          {isShowSidebar && <Sidebar />}
           <Wrapper>
             <Outlet />
           </Wrapper>
-        </ThemeProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </MyThemeProvder>
     </>
   );
 };
