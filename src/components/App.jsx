@@ -5,14 +5,14 @@ import { LightTheme, DarkTheme } from "../styles/theme";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
 import { Header } from "./ui/Header";
-import { Result } from "./features/result/Result";
+import { Result } from "./feature/result/Result";
 import { generateTopic } from "../api/api";
 import { useFetchData } from "../hooks/useFetchData";
 import { loadLocalStorage } from "../utils/loadLocalStorage";
-import { Sidebar } from "./features/sidebar/Sidebar";
-import { Home } from "./features/home/Home";
+import { Sidebar } from "./feature/sidebar/Sidebar";
+import { Home } from "./page/Home";
 import { Outlet, useLocation } from "react-router-dom";
-import { AuthProvider } from "../hooks/useAuth";
+import { AuthProvider, useAuth } from "../hooks/useAuth";
 
 const Wrapper = styled.div`
   max-width: 50rem;
@@ -29,6 +29,8 @@ const Wrapper = styled.div`
 export const App = () => {
   const [theme, setTheme] = useState("light");
   const isShowSidebar = useLocation().pathname !== "/start";
+
+  console.log(useAuth().isLogin);
 
   return (
     <>

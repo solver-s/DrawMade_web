@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import AppIcon from "../../../assets/main.svg?react";
-import KaKaoIcon from "../../../assets/kakao.svg?react";
+import { Header } from "../ui/Header";
+import { useAuth } from "../../hooks/useAuth";
 
-import { Header } from "../../ui/Header";
-import { useAuth } from "../../../hooks/useAuth";
+import AppIcon from "../../assets/main.svg?react";
+import KaKaoIcon from "../../assets/kakao.svg?react";
 
 const Wrapper = styled.div`
   margin-top: 3rem;
@@ -100,7 +100,7 @@ const KaKao = styled.button`
   }
 `;
 
-export const Landing = () => {
+export const Start = () => {
   const { handleLogin } = useAuth();
 
   return (

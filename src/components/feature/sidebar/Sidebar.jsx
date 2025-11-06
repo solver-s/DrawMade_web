@@ -1,11 +1,12 @@
-import { services } from "../../../utils/routes";
-import Arrow from "../../../assets/arrow.svg?react";
-import Light from "../../../assets/light.svg?react";
-import Dark from "../../../assets/dark.svg?react";
-
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+import { services } from "../../router/routes.jsx";
+
+import Arrow from "../../../assets/arrow.svg?react";
+import Light from "../../../assets/light.svg?react";
+import Dark from "../../../assets/dark.svg?react";
 
 const Wrapper = styled.nav`
   position: fixed;
