@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import MainIcon from "../../assets/main.svg?react";
 import { memo } from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -31,15 +30,13 @@ const StyledHeader = styled.div`
   }
 `;
 
-export const Header = memo(() => {
-  console.log("rendering Header");
+export const Header = memo(({ header, content }) => {
   return (
     <Wrapper>
       <StyledHeader>
-        <MainIcon />
-        <h1>DrawMade</h1>
+        <h1>{header}</h1>
       </StyledHeader>
-      <span>AI 기반 입시 미술 주제 추천 서비스</span>
+      <span>{content}</span>
     </Wrapper>
   );
 });
