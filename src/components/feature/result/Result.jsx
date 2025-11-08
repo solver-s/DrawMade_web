@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { memo, useState } from "react";
 
 import { Box } from "./Box";
-import LibIcon from "../../../assets/library.svg?react";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -93,7 +92,7 @@ export const Result = memo(({ topic }) => {
           <Content>
             <h4>{topic.title}</h4>
             <p>
-              <LibIcon />
+              {/* <LibIcon /> */}
               {`${topic.school_name}·${topic.department_name}`}
             </p>
           </Content>

@@ -1,33 +1,30 @@
-import { Navigate } from "react-router-dom";
-
-import { App } from "../App";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 import { RouteHandler } from "../system/RouteHandler";
 import { CheckAuth } from "../system/CheckAuth";
 
+import { App } from "../App";
 import { Start } from "../page/Start";
 import { Home } from "../page/Home";
 import { Topic } from "../page/Topic";
 import { Session } from "../page/Session";
 
-import Group from "../../assets/group.svg?react";
-import Art from "../../assets/art.svg?react";
-import HomeIcon from "../../assets/home.svg?react";
+import { HomeIcon, TopicIcon, SessionIcon } from "../../assets/IconList";
 
 export const services = [
   { path: "/home", element: <Home />, name: "홈", icon: <HomeIcon /> },
-  { path: "/topic", element: <Topic />, name: "미술 주제", icon: <Art /> },
-  { path: "/session", element: <Session />, name: "세션", icon: <Group /> },
+  { path: "/topic", element: <Topic />, name: "미술 주제", icon: <TopicIcon /> },
+  { path: "/session", element: <Session />, name: "세션", icon: <SessionIcon /> },
 ];
 
-export const routes = [
+const routes = [
   {
     path: "/",
     element: <App />,
     name: "앱 레이아웃",
     icon: <HomeIcon />,
     children: [
-      { index: true, element: <RouteHandler />, name: "시작" },
+      { index: true, element: <RouteHandler />, name: "인증" },
       { path: "/start", element: <Start />, name: "시작" },
       {
         element: <CheckAuth />,
@@ -40,3 +37,8 @@ export const routes = [
     element: <Navigate to="/" replace />,
   },
 ];
+
+export const AppRouter = () => {
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router} />;
+};

@@ -4,11 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 
 import { useAuth } from "../../../hooks/useAuth.jsx";
 import { useTheme } from "../../../hooks/useTheme.jsx";
-import { services } from "../../router/routes.jsx";
+import { services } from "../../router/router.jsx";
 
-import Arrow from "../../../assets/arrow.svg?react";
-import Light from "../../../assets/light.svg?react";
-import Dark from "../../../assets/dark.svg?react";
+import { ArrowIcon, LightIcon, DarkIcon } from "../../../assets/IconList.js";
 
 const Wrapper = styled.nav`
   position: fixed;
@@ -18,6 +16,7 @@ const Wrapper = styled.nav`
   display: flex;
   flex-direction: column;
   border-right: 0.1rem solid ${({ theme }) => theme.borderColor};
+  background-color: ${({ theme }) => theme.themeColor};
 
   width: ${({ $isFolded }) => ($isFolded ? "4rem" : "15rem")};
   transition: width 0.3s ease-in-out;
@@ -148,7 +147,7 @@ const Profile = styled.div`
 `;
 
 export const Sidebar = () => {
-  const { handleTheme } = useTheme();
+  const { theme, handleTheme } = useTheme();
   const { user, handleLogin } = useAuth();
   const [isFolded, setIsFolded] = useState(false);
   const located = useLocation().pathname;
@@ -160,11 +159,9 @@ export const Sidebar = () => {
   return (
     <Wrapper $isFolded={isFolded}>
       <Utils $isFolded={isFolded}>
-        <Util onClick={handleTheme}>
-          <Light />
-        </Util>
+        <Util onClick={handleTheme}>{theme === "light" ? <DarkIcon /> : <LightIcon />}</Util>
         <Util onClick={handleFold}>
-          <Arrow />
+          <ArrowIcon />
         </Util>
       </Utils>
       <List $isFolded={isFolded}>
