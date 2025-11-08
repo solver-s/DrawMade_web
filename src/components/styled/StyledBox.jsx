@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const IconBox = styled.div`
+  display: flex;
+  background-color: ${({ theme }) => theme.borderColor};
+  padding: 0.5rem;
+  border: 0.1rem solid ${({ theme }) => theme.borderColor};
+  border-radius: 0.7rem;
+`;
+
 export const BorderBox = styled.div`
   text-align: left;
   display: flex;

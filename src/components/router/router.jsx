@@ -5,7 +5,7 @@ import { CheckAuth } from "../system/CheckAuth";
 
 import { App } from "../App";
 import { Start } from "../page/Start";
-import { Home } from "../page/Home";
+import { Home } from "../page/Home/Home";
 import { Topic } from "../page/Topic";
 import { Session } from "../page/Session";
 

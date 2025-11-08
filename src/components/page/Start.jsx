@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Navigate } from "react-router-dom";
 
 import { useAuth } from "../../hooks/useAuth";
-import { BorderBox, Bundle } from "../ui/StyledBox";
+import { BorderBox, Bundle, IconBox } from "../styled/StyledBox";
 
 import { MainIcon, KaKaoIcon } from "../../assets/IconList";
 
@@ -46,15 +46,8 @@ const Info = styled.div`
   }
 `;
 
-const IconWrapper = styled.div`
-  display: flex;
-  background-color: ${({ theme }) => theme.borderColor};
-  padding: 0.5rem;
-  border: 0.1rem solid ${({ theme }) => theme.borderColor};
-  border-radius: 0.7rem;
-
+const BigIconBox = styled(IconBox)`
   & > svg {
-    fill: ${({ theme }) => theme.color};
     width: 4rem;
     height: 4rem;
   }
@@ -109,9 +102,9 @@ export const Start = () => {
 
   return (
     <Wrapper>
-      <IconWrapper>
+      <BigIconBox>
         <MainIcon />
-      </IconWrapper>
+      </BigIconBox>
       <Header>
         <h1>DrawMade</h1>
         <p>AI가 만드는 맞춤형 입시 미술 주제</p>

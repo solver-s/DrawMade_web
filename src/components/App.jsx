@@ -3,13 +3,7 @@ import { useState, useMemo, useCallback } from "react";
 import styled, { ThemeProvider, useTheme } from "styled-components";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
-import { Header } from "./ui/Header";
-import { Result } from "./feature/result/Result";
-import { generateTopic } from "../api/api";
-import { useFetchData } from "../hooks/useFetchData";
-import { loadLocalStorage } from "../utils/loadLocalStorage";
 import { Sidebar } from "./feature/sidebar/Sidebar";
-import { Home } from "./page/Home";
 import { Outlet, useLocation } from "react-router-dom";
 import { AuthProvider } from "../hooks/useAuth";
 import { ThemeProvider as MyThemeProvder } from "../hooks/useTheme";

@@ -72,4 +72,12 @@ export const GlobalStyle = createGlobalStyle`
   a {
 	text-decoration: none;
   }
+
+  svg {
+	color: ${(theme) => theme.color};
+
+	& * {
+    	fill: currentColor;
+  	}
+  }
 `;
