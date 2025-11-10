@@ -49,7 +49,6 @@ const Util = styled.button`
   }
 
   & > svg {
-    fill: ${({ theme }) => theme.color};
     width: 0.9rem;
     height: 0.9rem;
   }
@@ -73,13 +72,13 @@ const Item = styled.li`
   }
 
   & > span {
-    color: ${({ $isLocated, theme }) => ($isLocated ? theme.themeColor : theme.color)};
     font-size: 0.9rem;
+    color: ${({ theme, $isLocated }) => ($isLocated ? theme.themeColor : theme.color)};
   }
 
   & > svg {
     flex-shrink: 0;
-    fill: ${({ $isLocated, theme }) => ($isLocated ? theme.themeColor : theme.color)};
+    color: ${({ theme, $isLocated }) => ($isLocated ? theme.themeColor : theme.color)};
     width: 1.2rem;
     height: 1.2rem;
   }

@@ -47,7 +47,6 @@ const DeleteIcon = styled.button`
   }
 
   & > svg {
-    fill: ${({ theme }) => theme.color};
     width: 0.8rem;
     height: 0.8rem;
   }

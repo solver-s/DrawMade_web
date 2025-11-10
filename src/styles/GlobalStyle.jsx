@@ -66,7 +66,6 @@ export const GlobalStyle = createGlobalStyle`
   ul, ol {
 	list-style-position: inside;
 	font-size: 0.8rem;
-	color: ${({ theme }) => theme.subColor};
   }
 
   a {

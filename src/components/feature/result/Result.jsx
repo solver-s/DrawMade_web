@@ -28,7 +28,6 @@ const Content = styled.div`
   }
 
   & > p svg {
-    fill: ${({ theme }) => theme.color};
     width: 1rem;
     height: 1rem;
   }
