@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { Button } from "../../ui/button/Button";
 import { Bundle, BorderBox, IconBox } from "../../styled/StyledBox";
 
 import {
@@ -10,6 +11,7 @@ import {
   SchoolIcon,
   ShareIcon,
 } from "../../../assets/IconList";
+import { useNavigate } from "react-router-dom";
 
 const SmallIconBox = styled(IconBox)`
   padding: 0.3rem;
@@ -67,9 +69,15 @@ const BoxInfo = styled.div`
 
 const IntroBox = styled(BorderBox)`
   gap: 0.5rem;
+
+  & > button {
+    margin-top: 0.5rem;
+  }
 `;
 
 export const IntroBundle = () => {
+  const navigate = useNavigate();
+
   const IntroData = [
     {
       icon: <TopicIcon />,
@@ -83,6 +91,13 @@ export const IntroBundle = () => {
           label: "특정 키워드를 입력하여 더 정확한 주제를 받아보세요",
         },
       ],
+      button: {
+        isDisabled: false,
+        content: "주제 생성하기",
+        onClick: () => {
+          navigate("/topic");
+        },
+      },
     },
     {
       icon: <SessionIcon />,
@@ -96,6 +111,13 @@ export const IntroBundle = () => {
           label: "완성한 작품을 업로드하고 피드백을 받아보세요",
         },
       ],
+      button: {
+        isDisabled: false,
+        content: "주제 생성하기",
+        onClick: () => {
+          navigate("/session");
+        },
+      },
     },
   ];
 
@@ -122,6 +144,7 @@ export const IntroBundle = () => {
                 </Point>
               );
             })}
+            <Button {...data.button} />
           </IntroBox>
         );
       })}
