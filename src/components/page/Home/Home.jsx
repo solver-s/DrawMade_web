@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { UserDataBundle } from "./UserDataBundle";
 import { IntroBundle } from "./IntroBundle";
+import { GuideBox } from "./GuideBox";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -32,6 +33,7 @@ export const Home = () => {
       </Welcome>
       <UserDataBundle />
       <IntroBundle />
+      <GuideBox />
     </Wrapper>
   );
 };
