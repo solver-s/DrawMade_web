@@ -1,3 +1,4 @@
 export { Topic } from "./Topic";
-export { History } from "./History";
-export { Request } from "./Requset";
+export { CurrentTopic } from "./CurrentTopic";
+export { CreateTopic } from "./CreateTopic";
+export { ManageTopic } from "./ManageTopic";
