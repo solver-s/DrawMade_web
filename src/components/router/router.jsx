@@ -6,14 +6,23 @@ import { CheckAuth } from "../system/CheckAuth";
 import { App } from "../App";
 import { Start } from "../page/Start";
 import { Home } from "../page/Home/Home";
-import { Topic } from "../page/Topic";
+import { Topic, Request as TopicRequest, History as TopicHistory } from "../page/Topic";
 import { Session } from "../page/Session";
 
 import { HomeIcon, TopicIcon, SessionIcon } from "../../assets/IconList";
 
+export const topicItems = [
+  { path: "/topic/create", elment: <TopicRequest />, name: "생성하기" },
+  {
+    path: "/topic/history",
+    elment: <TopicHistory />,
+    name: "내 주제",
+  },
+];
+
 export const services = [
   { path: "/home", element: <Home />, name: "홈", icon: <HomeIcon /> },
-  { path: "/topic", element: <Topic />, name: "미술 주제", icon: <TopicIcon /> },
+  { path: "/topic", element: <Topic />, name: "미술 주제", icon: <TopicIcon />, children: topicItems },
   { path: "/session", element: <Session />, name: "세션", icon: <SessionIcon /> },
 ];
 
