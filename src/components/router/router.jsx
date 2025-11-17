@@ -12,17 +12,23 @@ import { Session } from "../page/Session";
 import { HomeIcon, TopicIcon, SessionIcon } from "../../assets/IconList";
 
 export const topicItems = [
-  { path: "/topic/create", elment: <TopicRequest />, name: "생성하기" },
+  { path: "/topic/create", element: <TopicRequest />, name: "생성하기" },
   {
     path: "/topic/history",
-    elment: <TopicHistory />,
+    element: <TopicHistory />,
     name: "내 주제",
   },
 ];
 
 export const services = [
   { path: "/home", element: <Home />, name: "홈", icon: <HomeIcon /> },
-  { path: "/topic", element: <Topic />, name: "미술 주제", icon: <TopicIcon />, children: topicItems },
+  {
+    path: "/topic",
+    element: <Topic />,
+    name: "미술 주제",
+    icon: <TopicIcon />,
+    children: [{ index: true, element: <Navigate to="create" replace /> }, ...topicItems],
+  },
   { path: "/session", element: <Session />, name: "세션", icon: <SessionIcon /> },
 ];
 
