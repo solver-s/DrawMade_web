@@ -3,15 +3,14 @@ import styled from "styled-components";
 import { UserDataBundle } from "./UserDataBundle";
 import { IntroBundle } from "./IntroBundle";
 import { GuideBox } from "./GuideBox";
+import { h1_p } from "../../styled/StyledText";
 
 const Wrapper = styled.div`
   width: 100%;
 `;
 
-const Welcome = styled.div`
-  display: flex;
+const Welcome = styled(h1_p)`
   flex-direction: column-reverse;
-  gap: 0.5rem;
 
   & > h1 {
     font-size: 1.1rem;
