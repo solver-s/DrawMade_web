@@ -1,7 +1,7 @@
 import { memo, useEffect, useState, useMemo } from "react";
 import styled from "styled-components";
 
-import { Input } from "./Input";
+import { Input } from "../Input/Input";
 import { useSupportedList } from "./useSupportedList";
 import { Select } from "../Select";
 
@@ -54,6 +54,7 @@ export const SelectInput = memo(({ inputObj, select, getSelect, submitIsVaild })
   const [isOpen, setIsOpen] = useState(false);
   const [isValid, setIsValid] = useState(false);
 
+  console.log(supportedList);
   const openList = () => setIsOpen(true);
   const closeList = () => setIsOpen(false);
   const selectList = (e) => {

@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { memo } from "react";
 
 import { Input } from "../Input/Input";
-import CloseIcon from "../../../assets/close.svg?react";
+
+import { CloseIcon } from "../../../assets/IconList";
 
 const Wrapper = styled.div`
   width: 100%;

@@ -1,10 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import { getUniv } from "../../../api/api";
-import { LoadLocalStorage } from "../../../utils/LoadLocalStorage";
+
+import { loadLocalStorage } from "../../../utils/loadLocalStorage";
+
+const mock = [
+  { id: "support_1", name: "지원대상 1" },
+  { id: "support_2", name: "지원대상 2" },
+  { id: "support_3", name: "지원대상 3" },
+  { id: "support_4", name: "지원대상 4" },
+];
 
 export const useSupportedList = (key, getSelect) => {
   const [supportedList, setSupportedList] = useState(() => {
-    return LoadLocalStorage(key);
+    return loadLocalStorage(key);
   });
 
   useEffect(() => {
@@ -12,7 +19,8 @@ export const useSupportedList = (key, getSelect) => {
 
     const fetchData = async () => {
       try {
-        const data = await getSelect();
+        // const data = await getSelect();
+        const data = mock;
         setSupportedList(data);
         window.localStorage.setItem(key, JSON.stringify(data));
       } catch (e) {
