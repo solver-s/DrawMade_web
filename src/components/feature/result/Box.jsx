@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 0.5rem;
 
-  background-color: ${({ theme }) => theme.hover.bgColor};
+  background-color: ${({ theme }) => theme.accentColor};
   padding: 1rem;
   border-radius: 0.5rem;
 

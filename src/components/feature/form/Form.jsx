@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1rem;
   padding: 1.5rem;
   border: 0.1rem solid ${({ theme }) => theme.borderColor};
   border-radius: 0.6rem;

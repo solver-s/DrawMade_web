@@ -2,11 +2,11 @@ import { memo } from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  background-color: ${({ theme, $isDisabled }) => ($isDisabled ? theme.bgColor : theme.color)};
+  color: ${({ theme, $isDisabled }) => ($isDisabled ? theme.subColor : theme.themeColor)};
+  background-color: ${({ theme, $isDisabled }) => ($isDisabled ? theme.accentColor : theme.color)};
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  color: ${({ theme, $isDisabled }) => ($isDisabled ? theme.placeholder.color : theme.themeColor)};
   font-size: 0.9rem;
   border: 0px;
 `;

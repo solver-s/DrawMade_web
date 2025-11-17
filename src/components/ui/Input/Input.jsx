@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  gap: 0.5rem;
 
   & > label {
     font-size: 0.9rem;
@@ -15,7 +16,7 @@ const Wrapper = styled.div`
   & > input {
     min-height: 2rem;
     width: 100%;
-    background-color: ${({ theme }) => theme.hover.bgColor};
+    background-color: ${({ theme }) => theme.accentColor};
     padding-left: 0.5rem;
     border-radius: 0.3rem;
     border: ${({ $isValid }) => ($isValid === false ? "0.1rem solid red" : "")};
@@ -35,6 +36,7 @@ export const Input = memo(({ inputObj }) => {
     <Wrapper $isValid={isValid || state === ""}>
       <label htmlFor={id}>{label}</label>
       <input
+        autoComplete="off"
         id={id}
         placeholder={holder}
         value={state}

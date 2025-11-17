@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import { Input } from "../Input/Input";
 import { useSupportedList } from "./useSupportedList";
-import { Select } from "../Select";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -44,7 +43,7 @@ const SearchList = styled.ul`
   }
 
   & > li:hover {
-    background-color: ${({ theme }) => theme.hover.bgColor};
+    background-color: ${({ theme }) => theme.accentColor};
   }
 `;
 
@@ -54,7 +53,6 @@ export const SelectInput = memo(({ inputObj, select, getSelect, submitIsVaild })
   const [isOpen, setIsOpen] = useState(false);
   const [isValid, setIsValid] = useState(false);
 
-  console.log(supportedList);
   const openList = () => setIsOpen(true);
   const closeList = () => setIsOpen(false);
   const selectList = (e) => {

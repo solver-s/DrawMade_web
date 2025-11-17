@@ -1,18 +1,20 @@
 import styled from "styled-components";
-import { memo, useState } from "react";
+import { memo } from "react";
 
 import { Box } from "./Box";
 
+import mockData from "../../../assets/mock/data.json";
+
 const Wrapper = styled.div`
   width: 100%;
+  font-size: 0.9rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.5rem;
-
   border: 0.1rem solid ${({ theme }) => theme.borderColor};
   border-radius: 0.6rem;
-  font-size: 0.9rem;
+  padding: 1.5rem;
+  margin-bottom: 4rem;
 `;
 
 const Content = styled.div`
@@ -44,7 +46,7 @@ const Keyword = styled.div`
     font-size: 0.8rem;
     padding: 0.2rem 0.5rem;
     border-radius: 0.3rem;
-    background-color: ${({ theme }) => theme.hover.bgColor};
+    background-color: ${({ theme }) => theme.accentColor};
     color: ${({ theme }) => theme.color};
   }
 `;
@@ -80,9 +82,8 @@ const Empty = styled.span`
 `;
 
 export const Result = memo(({ topic }) => {
-  //   const data = JSON.parse(JSON.stringify(mockData));
-
-  console.log("rendering Result");
+  const data = JSON.parse(JSON.stringify(mockData));
+  topic = data;
 
   return (
     <Wrapper>

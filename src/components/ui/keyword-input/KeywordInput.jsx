@@ -28,7 +28,7 @@ const KeywordWrapper = styled.div`
 const Keyword = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.hover.bgColor};
+  background-color: ${({ theme }) => theme.accentColor};
   border-radius: 0.3rem;
   padding: 0.2rem 0.5rem;
   gap: 0.2rem;
@@ -41,6 +41,7 @@ const Keyword = styled.div`
 
 const DeleteIcon = styled.button`
   display: flex;
+  background-color: ${({ theme }) => theme.accentColor};
 
   &:hover {
     background-color: ${({ theme }) => theme.subColor};

@@ -4,10 +4,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Item = styled.div`
   display: flex;
   min-width: 5rem;
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 2rem;
   border-radius: 1rem;
   background-color: ${({ theme, $isLocated }) => ($isLocated ? theme.borderColor : "transparent")};
   cursor: pointer;
+  line-height: 1;
+  letter-spacing: 0.1rem;
 `;
 
 const Itmes = styled.div`
