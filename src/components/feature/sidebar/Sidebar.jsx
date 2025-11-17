@@ -149,7 +149,7 @@ export const Sidebar = () => {
   const { theme, handleTheme } = useTheme();
   const { user, handleLogin } = useAuth();
   const [isFolded, setIsFolded] = useState(false);
-  const located = useLocation().pathname;
+  const located = `/${useLocation().pathname.split("/")[1]}`;
 
   const handleFold = () => {
     setIsFolded((prev) => !prev);
