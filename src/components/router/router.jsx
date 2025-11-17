@@ -6,17 +6,22 @@ import { CheckAuth } from "../system/CheckAuth";
 import { App } from "../App";
 import { Start } from "../page/Start";
 import { Home } from "../page/Home/Home";
-import { Topic, Request as TopicRequest, History as TopicHistory } from "../page/Topic";
+import { Topic, CreateTopic, CurrentTopic, ManageTopic } from "../page/Topic";
 import { Session } from "../page/Session";
 
 import { HomeIcon, TopicIcon, SessionIcon } from "../../assets/IconList";
 
 export const topicItems = [
-  { path: "/topic/create", element: <TopicRequest />, name: "생성하기" },
+  { path: "/topic/create", element: <CreateTopic />, name: "새 주제" },
   {
-    path: "/topic/history",
-    element: <TopicHistory />,
-    name: "내 주제",
+    path: "/topic/current",
+    element: <CurrentTopic />,
+    name: "현재 주제",
+  },
+  {
+    path: "/topic/manage",
+    element: <ManageTopic />,
+    name: "주제 관리",
   },
 ];
 
