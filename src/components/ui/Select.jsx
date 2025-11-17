@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
   & > select {
     font-size: 0.9rem;
-    background-color: ${({ theme }) => theme.hover.bgColor};
+    background-color: ${({ theme }) => theme.accentColor};
     padding: 0.5rem;
     border-radius: 0.3rem;
     border: 0px;
