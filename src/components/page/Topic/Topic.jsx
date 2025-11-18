@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
 import { Outlet } from "react-router-dom";
 
-import { h1_p } from "../../styled/StyledText";
+import { h_p } from "../../styled/StyledText";
 import { TopBar } from "../../ui/TopBar";
 import { topicItems } from "../../router/router";
 
-const Header = styled(h1_p)``;
+const Header = styled(h_p)``;
 
 export const Topic = () => {
   return (
