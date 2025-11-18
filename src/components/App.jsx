@@ -3,7 +3,7 @@ import { useState, useMemo, useCallback } from "react";
 import styled, { ThemeProvider, useTheme } from "styled-components";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
-import { Sidebar } from "./feature/sidebar/Sidebar";
+import { Sidebar } from "./layout/sidebar/Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { AuthProvider } from "../hooks/useAuth";
 import { ThemeProvider as MyThemeProvder } from "../hooks/useTheme";

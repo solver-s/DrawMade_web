@@ -1,4 +1,4 @@
-import { Result } from "../../feature/result/Result";
+import { Result } from "./result/Result";
 
 export const CurrentTopic = () => {
   return (

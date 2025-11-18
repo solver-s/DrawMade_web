@@ -3,7 +3,7 @@ import { memo } from "react";
 
 import { Box } from "./Box";
 
-import mockData from "../../../assets/mock/data.json";
+import mockData from "../../../../assets/mock/data.json";
 
 const Wrapper = styled.div`
   width: 100%;

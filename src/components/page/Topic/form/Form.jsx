@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { memo, useState } from "react";
 
-import { Button } from "../../ui/button/Button";
-import { KeywordInput } from "../../ui/keyword-input/KeywordInput";
-import { useKeyword } from "../../ui/keyword-input/useKeyword";
+import { Button } from "../../../ui/button/Button";
+import { KeywordInput } from "../../../ui/keyword-input/KeywordInput";
+import { useKeyword } from "../../../ui/keyword-input/useKeyword";
 
-import { SelectInput } from "../../ui/select-input/SelectInput";
-import { useInput } from "../../ui/Input/useInput";
+import { SelectInput } from "../../../ui/select-input/SelectInput";
+import { useInput } from "../../../ui/Input/useInput";
 
-import { useKeyHandler } from "../../../hooks/useKeyHandler";
+import { useKeyHandler } from "../../../../hooks/useKeyHandler";
 
-import { getDepart, getUniv } from "../../../api/api";
+import { getDepart, getUniv } from "../../../../api/api";
 
 const Wrapper = styled.div`
   width: 100%;
