@@ -7,9 +7,15 @@ import { App } from "../App";
 import { Start } from "../page/Start";
 import { Home } from "../page/Home/Home";
 import { Topic, CreateTopic, CurrentTopic, ManageTopic } from "../page/Topic";
-import { Session } from "../page/Session";
+import { Session, CreateSession, CurrentSession, ManageSession } from "../page/Session";
 
 import { HomeIcon, TopicIcon, SessionIcon } from "../../assets/IconList";
+
+export const sessionItems = [
+  { path: "/session/current", element: <CurrentSession />, name: "내 세션" },
+  { path: "/session/create", element: <CreateSession />, name: "세션 생성" },
+  { path: "/session/manage", element: <ManageSession />, name: "세션 관리" },
+];
 
 export const topicItems = [
   { path: "/topic/create", element: <CreateTopic />, name: "새 주제" },
@@ -34,7 +40,13 @@ export const services = [
     icon: <TopicIcon />,
     children: [{ index: true, element: <Navigate to="create" replace /> }, ...topicItems],
   },
-  { path: "/session", element: <Session />, name: "세션", icon: <SessionIcon /> },
+  {
+    path: "/session",
+    element: <Session />,
+    name: "공유 세션",
+    icon: <SessionIcon />,
+    children: [{ index: true, element: <Navigate to="current" replace /> }, ...sessionItems],
+  },
 ];
 
 const routes = [
