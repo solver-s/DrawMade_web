@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   border: 0.1rem solid ${({ theme }) => theme.borderColor};
   border-radius: 0.6rem;
   padding: 1.5rem;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 `;
 
 const Content = styled.div`

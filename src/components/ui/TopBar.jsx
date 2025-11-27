@@ -15,6 +15,7 @@ const Item = styled.div`
 const Itmes = styled.div`
   display: flex;
   flex: 0 0 0;
+  align-self: flex-start;
   background-color: ${({ theme }) => theme.accentColor};
   padding: 0.3rem 0.3rem;
   border-radius: 1.5rem;
