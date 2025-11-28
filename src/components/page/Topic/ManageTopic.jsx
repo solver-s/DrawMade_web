@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { BorderBox, Bundle } from "../../styled/StyledBox";
@@ -6,7 +7,6 @@ import { h_p } from "../../styled/StyledText";
 import { loadLocalStorage } from "../../../utils/loadLocalStorage";
 
 import mockData from "../../../assets/mock/data.json";
-import { useNavigate } from "react-router-dom";
 
 const BoxHeader = styled(h_p)`
   gap: 0.2rem;
